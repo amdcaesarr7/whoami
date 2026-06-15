@@ -7,7 +7,7 @@ export function BlankPage() {
   return (
     <section className="relative mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-6 py-24">
       <p className="font-mono mb-8 text-xs tracking-[0.4em] text-foreground/40">
-        CHAPTER 05 — WHAT&apos;S NEXT?
+        CHAPTER 04 — WHAT&apos;S NEXT?
       </p>
 
       <Paper rotate={-1} className="relative w-full max-w-md">
@@ -47,10 +47,10 @@ export function BlankPage() {
           <p>To the inner Caesar.</p>
         </div>
         <p className="font-typewriter mt-8 text-2xl tracking-[0.3em] text-foreground/70">
-          FIN.
+          To tha Bitches!
         </p>
         <p className="font-mono mt-3 text-[10px] tracking-widest text-foreground/30">
-          scroll on if you like digging through lost notes.
+          bye for now
         </p>
       </motion.div>
     </section>
