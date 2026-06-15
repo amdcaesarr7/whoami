@@ -1,18 +1,25 @@
 'use client'
 
 import { Paper, Tape, StickyNote } from './primitives'
+import { FoundStamp } from './explore'
 
 export function ChapterExplorer() {
   return (
     <section className="relative mx-auto max-w-5xl px-6 py-20">
-      <div className="mb-12 text-center">
-        <p className="font-typewriter text-ink/50 text-xs tracking-[0.3em]">
+      <div className="mb-6 text-center">
+        <p className="font-mono text-xs tracking-[0.4em] text-foreground/40">
           CHAPTER 04
         </p>
-        <h2 className="font-typewriter text-ink mt-1 inline-block -rotate-1 text-3xl sm:text-4xl">
+        <h2 className="font-typewriter mt-1 inline-block -rotate-1 text-3xl text-foreground sm:text-4xl">
           The Explorer
         </h2>
       </div>
+
+      <p className="font-body mx-auto mb-12 max-w-md text-center text-[15px] leading-8 text-foreground/70">
+        Some people show off passport stamps. I chase{' '}
+        <span className="text-lamp">strange terminal errors</span> and follow
+        dead-end network traces like I&apos;m on a treasure hunt.
+      </p>
 
       <div className="relative grid gap-12 md:grid-cols-2">
         {/* terminal screenshot taped down */}
@@ -27,12 +34,12 @@ export function ChapterExplorer() {
             </div>
             <pre className="font-mono text-[11px] leading-5 text-[oklch(0.82_0.18_145)]">
 {`$ whoami
-explorer
+caesar
 
 $ history | tail -3
   cd /rabbit-hole
   curl how-does-this-work
-  git clone the-internet
+  traceroute the-internet
 
 $ echo $CURIOSITY
 unbounded_`}
@@ -48,7 +55,7 @@ unbounded_`}
             style={{ background: 'oklch(0.95 0.01 90 / 0.94)' }}
           >
             <p className="font-typewriter text-ink/60 text-[11px] tracking-widest">
-              HOW IT ALL CONNECTS
+              HOW DID I EVEN GET HERE?
             </p>
             <svg viewBox="0 0 260 170" className="mt-2 w-full" fill="none" aria-hidden>
               <path d="M40 40h60M100 40l50 40M40 40v60M100 130l60-50M160 80h60M160 80v50" stroke="var(--ink)" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
@@ -68,12 +75,17 @@ unbounded_`}
             </svg>
           </div>
         </Paper>
+
+        <FoundStamp
+          label="EXPLORER"
+          className="absolute -left-2 -top-6 z-30 hidden md:block"
+        />
       </div>
 
       {/* folder tabs sticking out */}
       <div className="relative mx-auto mt-16 max-w-xl">
         <div className="relative flex gap-2 pl-6">
-          {['/dns', '/kernels', '/old-forums'].map((tab, i) => (
+          {['/dead-ends', '/gadgets', '/old-forums'].map((tab, i) => (
             <span
               key={tab}
               className="font-mono text-ink rounded-t-md px-3 py-1 text-[11px] shadow-sm"
@@ -89,11 +101,11 @@ unbounded_`}
         <Paper rotate={-1} interactive={false} className="-mt-1">
           <div className="bg-paper paper-soft rounded-sm rounded-tl-none px-6 py-5">
             <StickyNote rotate={-2} className="text-ink text-3xl">
-              &quot;how did I even get here?&quot;
+              &quot;wow, how did I even end up here?&quot;
             </StickyNote>
             <p className="font-body text-ink/70 mt-2 text-sm leading-7">
-              Every answer is a doorway to three better questions. I keep the
-              folders. I rarely close the tabs.
+              There&apos;s always one more directory, one more rabbit hole. If
+              curiosity kept a notebook, it would be as chaotic as this one.
             </p>
           </div>
         </Paper>

@@ -22,9 +22,9 @@ const body = Merriweather({
 })
 
 export const metadata: Metadata = {
-  title: 'whoami — a notebook found in a backpack',
+  title: 'whoami — Caesar',
   description:
-    'A forgotten notebook of a student, builder, repair guy, and explorer. Rummage through the pages.',
+    "Caesar's late-night archive: student, builder, repair guy, explorer. An unfinished notebook you get to dig through.",
   generator: 'v0.app',
   icons: {
     icon: [
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light',
-  themeColor: '#e8e0cf',
+  colorScheme: 'dark',
+  themeColor: '#2a2218',
 }
 
 export default function RootLayout({

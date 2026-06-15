@@ -2,17 +2,39 @@
 
 import Image from 'next/image'
 import { Paper, Tape, Paperclip, StickyNote } from './primitives'
+import { FoundStamp } from './explore'
+
+const broken = ['cracked phones', 'PCs on strike', 'programs that crash for fun']
 
 export function ChapterRepair() {
   return (
     <section className="relative mx-auto max-w-5xl px-6 py-20">
-      <div className="mb-12 text-center">
-        <p className="font-typewriter text-ink/50 text-xs tracking-[0.3em]">
+      <div className="mb-6 text-center">
+        <p className="font-mono text-xs tracking-[0.4em] text-foreground/40">
           CHAPTER 03
         </p>
-        <h2 className="font-typewriter text-ink mt-1 inline-block rotate-1 text-3xl sm:text-4xl">
+        <h2 className="font-typewriter mt-1 inline-block rotate-1 text-3xl text-foreground sm:text-4xl">
           The Repair Guy
         </h2>
+      </div>
+
+      <p className="font-body mx-auto mb-10 max-w-md text-center text-[15px] leading-8 text-foreground/70">
+        Nothing I touch works perfectly right away. Honestly, I like things best
+        when they&apos;re <span className="text-lamp">half-broken</span> — that&apos;s
+        when you can still catch the story under the mess.
+      </p>
+
+      {/* evidence tags of broken things */}
+      <div className="mb-12 flex flex-wrap justify-center gap-3">
+        {broken.map((item, i) => (
+          <span
+            key={item}
+            className="font-mono rounded-sm border border-foreground/15 bg-foreground/5 px-3 py-1 text-[11px] text-foreground/70"
+            style={{ transform: `rotate(${(i - 1) * 1.5}deg)` }}
+          >
+            ☒ {item}
+          </span>
+        ))}
       </div>
 
       <div className="grid items-start gap-10 md:grid-cols-2">
@@ -36,8 +58,6 @@ export function ChapterRepair() {
             <p className="font-mono mt-2 text-[10px] leading-4 opacity-70">
               torque: snug, not heroic · order: outside-in
             </p>
-
-            {/* diagnostic sticker */}
             <span className="absolute bottom-3 right-3 rotate-6 rounded-sm bg-paper px-2 py-1 font-mono text-[8px] text-ink shadow">
               PASS ✓ QC-09
             </span>
@@ -78,13 +98,19 @@ export function ChapterRepair() {
             </div>
           </div>
         </Paper>
+
+        <FoundStamp
+          label="FIXER"
+          className="absolute -right-2 -top-6 z-30 hidden md:block"
+        />
       </div>
 
       <StickyNote
         rotate={-4}
-        className="text-marker mt-24 max-w-[260px] text-3xl md:ml-10"
+        className="mt-24 max-w-[280px] text-3xl text-foreground md:ml-10"
       >
-        note: nothing is truly broken. it&apos;s just waiting for someone patient enough.
+        I fix things not out of duty — just to see what went wrong in the first
+        place.
       </StickyNote>
     </section>
   )

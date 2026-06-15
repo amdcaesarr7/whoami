@@ -2,18 +2,25 @@
 
 import Image from 'next/image'
 import { Paper, Tape, Pin, StickyNote } from './primitives'
+import { FoundStamp } from './explore'
 
 export function ChapterBuilder() {
   return (
     <section className="relative mx-auto max-w-5xl px-6 py-20">
-      <div className="mb-12 text-center">
-        <p className="font-typewriter text-ink/50 text-xs tracking-[0.3em]">
+      <div className="mb-6 text-center">
+        <p className="font-mono text-xs tracking-[0.4em] text-foreground/40">
           CHAPTER 02
         </p>
-        <h2 className="font-typewriter text-ink mt-1 inline-block -rotate-1 text-3xl sm:text-4xl">
+        <h2 className="font-typewriter mt-1 inline-block -rotate-1 text-3xl text-foreground sm:text-4xl">
           The Builder
         </h2>
       </div>
+
+      <p className="font-body mx-auto mb-12 max-w-md text-center text-[15px] leading-8 text-foreground/70">
+        I like building things that actually <em>do what I want</em>. Not shiny
+        display pieces — the kind of stuff that just works, even if it looks a
+        little rough.
+      </p>
 
       {/* cluttered desk: overlapping scatter */}
       <div className="relative grid gap-10 sm:grid-cols-2">
@@ -24,7 +31,7 @@ export function ChapterBuilder() {
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink/10">
               <Image
                 src="/images/project-desk.png"
-                alt="My cluttered build desk with a laptop and parts"
+                alt="A cluttered build desk with a laptop and parts"
                 fill
                 className="object-cover saturate-[0.85]"
                 sizes="256px"
@@ -53,11 +60,13 @@ export function ChapterBuilder() {
             </pre>
             <div className="my-3 border-t border-dashed border-ink/30" />
             <p className="text-[10px] leading-5 text-ink/70">
-              ITEM ........ a thing
+              ITEM ...... web pages w/ taped-on photos
               <br />
-              QTY ......... too many
+              ITEM ...... scripts that scrape the junk
               <br />
-              TOTAL ...... worth it
+              ITEM ...... &quot;sketched-in-pencil&quot; UIs
+              <br />
+              TOTAL ..... worth it
             </p>
             <p className="mt-3 text-center text-[10px] text-ink/50">
               ~ thank you ~
@@ -73,7 +82,7 @@ export function ChapterBuilder() {
           <Pin className="left-6 top-1 z-20" />
           <div
             className="paper-soft w-64 rounded-sm p-4"
-            style={{ background: 'oklch(0.95 0.01 90 / 0.92)' }}
+            style={{ background: 'oklch(0.95 0.01 90 / 0.94)' }}
           >
             <svg viewBox="0 0 220 130" className="w-full" fill="none" aria-hidden>
               <rect
@@ -90,14 +99,18 @@ export function ChapterBuilder() {
             </p>
           </div>
         </Paper>
+
+        <FoundStamp
+          label="BUILDER"
+          className="absolute -right-2 top-0 z-30 hidden sm:block"
+        />
       </div>
 
-      {/* connecting idea note with drawn arrow */}
+      {/* connecting idea note */}
       <div className="relative mt-10 flex justify-center">
-        <StickyNote rotate={3} className="text-ink max-w-[220px] text-center text-3xl">
-          if it builds, it&apos;s a feature.
-          <br />
-          if it breaks, it&apos;s a lesson.
+        <StickyNote rotate={3} className="max-w-[260px] text-center text-3xl text-foreground">
+          nothing beats the feeling when something finally runs and doesn&apos;t
+          blow up.
         </StickyNote>
       </div>
     </section>

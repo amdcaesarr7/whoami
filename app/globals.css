@@ -18,6 +18,8 @@
   --color-marker: var(--marker);
   --color-pin: var(--pin);
   --color-tape: var(--tape);
+  --color-lamp: var(--lamp);
+  --color-lamp-strong: var(--lamp-strong);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -59,18 +61,21 @@
 }
 
 :root {
-  color-scheme: light;
-  --background: oklch(0.91 0.025 85);
-  --foreground: oklch(0.27 0.02 60);
+  color-scheme: dark;
+  /* Late-night desk — deep, warm dark wood under a single lamp */
+  --background: oklch(0.17 0.018 55);
+  --foreground: oklch(0.86 0.03 80);
 
-  /* Notebook palette */
-  --paper: oklch(0.96 0.022 95);
-  --paper-aged: oklch(0.88 0.035 80);
-  --ink: oklch(0.27 0.03 265);
+  /* Notebook palette (papers stay lit + warm) */
+  --paper: oklch(0.95 0.024 92);
+  --paper-aged: oklch(0.87 0.04 78);
+  --ink: oklch(0.26 0.03 265);
   --ink-faded: oklch(0.45 0.02 60);
-  --marker: oklch(0.55 0.21 25);
-  --pin: oklch(0.55 0.21 25);
+  --marker: oklch(0.57 0.21 25);
+  --pin: oklch(0.57 0.21 25);
   --tape: oklch(0.95 0.02 95);
+  --lamp: oklch(0.82 0.13 75);
+  --lamp-strong: oklch(0.86 0.15 78);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -182,23 +187,27 @@
   body {
     @apply bg-background text-foreground;
     background-image:
+      /* warm overhead lamp pool */
       radial-gradient(
-        circle at 80% 90%,
-        oklch(0.6 0.08 60 / 0.18) 0%,
-        transparent 35%
+        ellipse 90% 60% at 50% -5%,
+        oklch(0.42 0.07 70 / 0.55) 0%,
+        transparent 60%
       ),
+      /* subtle secondary desk glow */
       radial-gradient(
-        circle at 15% 20%,
-        oklch(0.6 0.08 60 / 0.1) 0%,
-        transparent 30%
+        circle at 85% 95%,
+        oklch(0.35 0.05 60 / 0.4) 0%,
+        transparent 40%
       ),
+      /* wood grain streaks */
       repeating-linear-gradient(
-        45deg,
-        oklch(0.5 0.03 60 / 0.015) 0px,
-        oklch(0.5 0.03 60 / 0.015) 1px,
-        transparent 1px,
-        transparent 3px
+        92deg,
+        oklch(0.2 0.025 55 / 0.6) 0px,
+        oklch(0.15 0.02 50 / 0.6) 2px,
+        oklch(0.18 0.022 52 / 0.6) 5px,
+        oklch(0.14 0.018 48 / 0.6) 7px
       );
+    background-attachment: fixed;
   }
   html {
     @apply font-body;
@@ -210,10 +219,83 @@
   pointer-events: none;
   position: fixed;
   inset: 0;
-  z-index: 60;
-  opacity: 0.5;
-  mix-blend-mode: multiply;
+  z-index: 70;
+  opacity: 0.28;
+  mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+}
+
+/* ---------- Cinematic vignette (frames every scene) ---------- */
+.vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 65;
+  background:
+    radial-gradient(
+      ellipse 80% 75% at 50% 42%,
+      transparent 55%,
+      oklch(0.08 0.015 50 / 0.55) 100%
+    );
+}
+
+/* ---------- Lamp glow that follows the cursor ---------- */
+.lamp-glow {
+  pointer-events: none;
+  position: fixed;
+  z-index: 5;
+  height: 36rem;
+  width: 36rem;
+  left: var(--lamp-x, 50%);
+  top: var(--lamp-y, 30%);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    oklch(0.82 0.13 75 / 0.16) 0%,
+    oklch(0.7 0.1 70 / 0.06) 35%,
+    transparent 68%
+  );
+  transition: opacity 0.6s ease;
+}
+
+/* ---------- Discovery stamp (rubber-stamp "FOUND") ---------- */
+.found-stamp {
+  font-family: var(--font-typewriter);
+  color: var(--marker);
+  border: 3px solid var(--marker);
+  border-radius: 6px;
+  letter-spacing: 0.2em;
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  box-shadow: inset 0 0 0 1px oklch(0.57 0.21 25 / 0.4);
+}
+
+/* ---------- Floating dust motes in the lamp light ---------- */
+@keyframes drift {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-120px) translateX(20px);
+    opacity: 0;
+  }
+}
+.dust {
+  animation: drift linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dust {
+    animation: none;
+    opacity: 0 !important;
+  }
 }
 
 /* ---------- Paper base ---------- */
