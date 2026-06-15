@@ -47,7 +47,7 @@ export function BlankPage() {
           <p>To the inner Caesar.</p>
         </div>
         <p className="font-typewriter mt-8 text-2xl tracking-[0.3em] text-foreground/70">
-          To tha Bitches!
+          To tha Bitches!! 😋
         </p>
         <p className="font-mono mt-3 text-[10px] tracking-widest text-foreground/30">
           bye for now
