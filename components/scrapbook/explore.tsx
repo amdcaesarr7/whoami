@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from 'react'
-import { motion, useScroll, useSpring, useInView } from 'motion/react'
+import { motion, useInView } from 'motion/react'
 import { useRef, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 
@@ -91,33 +91,6 @@ export function Scene({
   )
 }
 
-/* ------------------------------------------------------------------ */
-/*  ExploreHud — fixed progress rail + "fragments recovered" counter   */
-/* ------------------------------------------------------------------ */
-
-export function ExploreHud() {
-  const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 90,
-    damping: 22,
-    mass: 0.4,
-  })
-
-  return (
-    <>
-      {/* top scrub line — like a film reel timeline */}
-      <div className="pointer-events-none fixed inset-x-0 top-0 z-[80] h-1 bg-foreground/10">
-        <motion.div
-          style={{ scaleX, transformOrigin: '0% 50%' }}
-          className="h-full bg-marker"
-        />
-      </div>
-
-    </>
-  )
-}
-
-/* ------------------------------------------------------------------ */
 /*  FoundStamp — a rubber-stamp badge that thuds in when discovered    */
 /* ------------------------------------------------------------------ */
 

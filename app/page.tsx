@@ -1,13 +1,12 @@
 import { Hero } from '@/components/scrapbook/hero'
 import { ChapterStudent } from '@/components/scrapbook/chapter-student'
 import { ChapterBuilder } from '@/components/scrapbook/chapter-builder'
-import { ChapterRepair } from '@/components/scrapbook/chapter-repair'
 import { ChapterExplorer } from '@/components/scrapbook/chapter-explorer'
 import { BlankPage } from '@/components/scrapbook/blank-page'
 import { Atmosphere } from '@/components/scrapbook/atmosphere'
-import { ExploreProvider, ExploreHud, Scene } from '@/components/scrapbook/explore'
+import { ExploreProvider, Scene } from '@/components/scrapbook/explore'
 
-const chapters = ['Student', 'Builder', 'Fixer', 'Explorer', "What's Next"]
+const chapters = ['Student', 'Builder', 'Explorer', "What's Next"]
 
 export default function Home() {
   return (
@@ -18,9 +17,6 @@ export default function Home() {
         <div aria-hidden className="vignette" />
         <div aria-hidden className="grain-overlay" />
 
-        {/* exploration HUD */}
-        <ExploreHud />
-
         <Hero />
 
         <Scene id="student">
@@ -28,9 +24,6 @@ export default function Home() {
         </Scene>
         <Scene id="builder">
           <ChapterBuilder />
-        </Scene>
-        <Scene id="repair">
-          <ChapterRepair />
         </Scene>
         <Scene id="explorer">
           <ChapterExplorer />

@@ -97,15 +97,15 @@ export function Hero() {
         <Pin className="left-1/2 top-1 z-20 -translate-x-1/2" />
         <div className="torn-bottom bg-paper-aged paper-hard w-36 px-3 py-3 pt-5">
           <p className="font-typewriter text-ink/70 text-[10px] tracking-widest">
-            ADMIT ONE
+            Why it ws created? 
           </p>
           <p className="font-typewriter text-ink mt-1 text-sm leading-tight">
-            A LIFE IN
+            idk
             <br />
-            FRAGMENTS
+            
           </p>
           <div className="border-ink/20 mt-2 border-t border-dashed pt-1">
-            <p className="font-mono text-ink/60 text-[9px]">NO · 00417</p>
+            <p className="font-mono text-ink/60 text-[9px]">its a thing i love. hehe</p>
           </div>
         </div>
       </Paper>
@@ -115,7 +115,7 @@ export function Hero() {
         rotate={-5}
         className="absolute left-2 top-44 hidden max-w-[170px] text-2xl text-foreground/70 md:block"
       >
-        not here to impress anyone. society&apos;s not my target audience.
+        Caesar is not here to impress anyone. society&apos;s not my target audience.
       </StickyNote>
 
       {/* begin exploring */}
@@ -130,7 +130,7 @@ export function Hero() {
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
           className="font-mono text-xs tracking-[0.4em] text-foreground/45"
         >
-          SCROLL
+          Scroll &apos;ONLY I YOU REALLY WANT&apos;
         </motion.span>
       </div>
     </section>

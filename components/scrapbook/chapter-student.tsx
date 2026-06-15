@@ -40,7 +40,7 @@ export function ChapterStudent() {
           <p className="font-body text-ink text-[15px] leading-8">
             Am I just a student?{' '}
             <span className="marker-hl">Not even close</span> — not the kind
-            anyone expects, at least.
+            anyone expects, at least :)
           </p>
 
           {/* tabs everywhere — a chaotic browser tab strip */}
@@ -63,14 +63,14 @@ export function ChapterStudent() {
 
           <p className="font-body text-ink mt-6 text-[15px] leading-8">
             Somewhere there&apos;s a half-baked UI sketch that{' '}
-            <span className="marker-hl">looked cooler in my head</span> (on paper
+            <span className="marker-hl">looked cooler in my head</span> <br /> (on paper
             it&apos;s a disaster).
           </p>
 
           <p className="font-body text-ink mt-4 text-[15px] leading-8">
-            Learning doesn&apos;t just happen in stuffy classrooms. It happens in
+            Learning doesn&apos;t just happen in bowrin Schools ermm.. maybe not in INDIA. It happens in
             every margin, every error message, every{' '}
-            <span className="marker-hl">rogue tab you forgot to kill.</span>
+            <span className="marker-hl">Ducking tab you forgot to kill.</span>
           </p>
 
           {/* margin doodle */}
@@ -97,13 +97,13 @@ export function ChapterStudent() {
         >
           <Pin className="left-1/2 top-1 -translate-x-1/2" />
           <p className="font-mono text-ink/60 text-[9px] leading-tight">
-            FINAL EXAM · Q4
+            NGL but the reason i go to school is  
             <br />
             ___________________
             <br />
-            answer: &quot;it depends&quot;
+            for
             <br />
-            grade: <span className="text-marker">B+ (see me)</span>
+            <span className="text-marker">FRIENDS</span>
           </p>
         </div>
 
@@ -117,7 +117,7 @@ export function ChapterStudent() {
         rotate={5}
         className="mx-auto mt-20 max-w-[210px] text-center text-3xl text-foreground sm:ml-auto sm:mr-10"
       >
-        &quot;the good notes were always in the margins&quot;
+        &quot;the good notes were always About the coding stufss😁&quot;
       </StickyNote>
     </section>
   )

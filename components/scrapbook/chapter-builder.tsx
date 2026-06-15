@@ -38,7 +38,7 @@ export function ChapterBuilder() {
               />
             </div>
             <p className="font-handwritten text-ink mt-2 text-center text-2xl leading-none">
-              shipping at 2am again
+              pov me: shipping at 2am again
             </p>
           </div>
         </Paper>
