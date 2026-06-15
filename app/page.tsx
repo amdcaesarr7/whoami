@@ -19,7 +19,7 @@ export default function Home() {
         <div aria-hidden className="grain-overlay" />
 
         {/* exploration HUD */}
-        <ExploreHud labels={chapters} />
+        <ExploreHud />
 
         <Hero />
 

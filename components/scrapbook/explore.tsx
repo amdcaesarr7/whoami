@@ -95,16 +95,13 @@ export function Scene({
 /*  ExploreHud — fixed progress rail + "fragments recovered" counter   */
 /* ------------------------------------------------------------------ */
 
-export function ExploreHud({ labels }: { labels: string[] }) {
-  const { total, found } = useExplore()
+export function ExploreHud() {
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 90,
     damping: 22,
     mass: 0.4,
   })
-
-  const count = Math.min(found.length, total)
 
   return (
     <>
@@ -115,20 +112,6 @@ export function ExploreHud({ labels }: { labels: string[] }) {
           className="h-full bg-marker"
         />
       </div>
-
-      {/* counter chip */}
-      <div className="pointer-events-none fixed right-3 top-4 z-[80] sm:right-5">
-        <div className="flex items-center gap-2 rounded-full border border-foreground/15 bg-background/70 px-3 py-1.5 backdrop-blur-sm">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-marker/60" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-marker" />
-          </span>
-          <span className="font-mono text-[11px] tracking-widest text-foreground/80">
-            {count.toString().padStart(2, '0')} / {total.toString().padStart(2, '0')} FRAGMENTS
-          </span>
-        </div>
-      </div>
-
 
     </>
   )
