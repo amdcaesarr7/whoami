@@ -129,35 +129,7 @@ export function ExploreHud({ labels }: { labels: string[] }) {
         </div>
       </div>
 
-      {/* side chapter dots (desktop) */}
-      <nav
-        aria-label="Chapters"
-        className="fixed left-4 top-1/2 z-[80] hidden -translate-y-1/2 flex-col gap-3 lg:flex"
-      >
-        {labels.map((label, i) => {
-          const done = i < count
-          return (
-            <div key={label} className="group flex items-center gap-2">
-              <span
-                className={cn(
-                  'h-2.5 w-2.5 rounded-full border transition-colors duration-500',
-                  done
-                    ? 'border-marker bg-marker'
-                    : 'border-foreground/30 bg-transparent',
-                )}
-              />
-              <span
-                className={cn(
-                  'font-mono text-[10px] uppercase tracking-widest transition-all duration-300',
-                  done ? 'text-foreground/70' : 'text-foreground/30',
-                )}
-              >
-                {label}
-              </span>
-            </div>
-          )
-        })}
-      </nav>
+
     </>
   )
 }
