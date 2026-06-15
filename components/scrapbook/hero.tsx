@@ -83,7 +83,7 @@ export function Hero() {
             />
           </div>
           <p className="font-handwritten text-ink mt-3 text-center text-2xl leading-none">
-            the kid who takes stuff apart
+            the kid whos gonna CONQUER
           </p>
         </div>
       </Paper>
@@ -121,7 +121,7 @@ export function Hero() {
       {/* begin exploring */}
       <div className="mt-14 flex flex-col items-center gap-1">
         <StickyNote rotate={-4} className="text-foreground text-3xl">
-          start digging
+          Ok thenn...
         </StickyNote>
         <MarkerArrow className="h-12 w-16 rotate-6" />
         <motion.span
@@ -130,7 +130,7 @@ export function Hero() {
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
           className="font-mono text-xs tracking-[0.4em] text-foreground/45"
         >
-          Scroll &apos;ONLY I YOU REALLY WANT&apos;
+          Scroll
         </motion.span>
       </div>
     </section>
