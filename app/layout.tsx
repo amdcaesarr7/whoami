@@ -1,17 +1,30 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Special_Elite, Reenie_Beanie, Merriweather } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const typewriter = Special_Elite({
+  weight: '400',
+  variable: '--font-typewriter',
+  subsets: ['latin'],
+})
+
+const handwritten = Reenie_Beanie({
+  weight: '400',
+  variable: '--font-handwritten',
+  subsets: ['latin'],
+})
+
+const body = Merriweather({
+  weight: ['300', '400', '700'],
+  variable: '--font-body',
   subsets: ['latin'],
 })
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'whoami — a notebook found in a backpack',
+  description:
+    'A forgotten notebook of a student, builder, repair guy, and explorer. Rummage through the pages.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -33,11 +46,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  colorScheme: 'light',
+  themeColor: '#e8e0cf',
 }
 
 export default function RootLayout({
@@ -46,8 +56,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="font-sans antialiased">
+    <html
+      lang="en"
+      className={`${typewriter.variable} ${handwritten.variable} ${body.variable} bg-background`}
+    >
+      <body className="font-body antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
